@@ -35,12 +35,13 @@ export default function Carousel() {
     setIndex((prev) => (prev + 1) % carouselData.length);
   };
 
+  //auto scroll after five seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % carouselData.length);
     }, 5000);
 
-    return () => clearImmediate(interval);
+    return () => clearInterval(interval);
   }, []);
 
   return (
