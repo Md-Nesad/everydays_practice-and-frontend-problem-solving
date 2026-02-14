@@ -1,9 +1,11 @@
+import Carousel from "./components/Carousel";
+
 export default function App() {
   return (
-    <>
-      <div>
-        <h1>App</h1>
-      </div>
-    </>
+    <div style={{ textAlign: "center" }}>
+      <h1>Machine coding round pratice</h1>
+
+      <Carousel />
+    </div>
   );
 }
