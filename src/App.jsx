@@ -1,11 +1,26 @@
-import Carousel from "./components/Carousel";
+import { useEffect, useState } from "react";
+import Pagination from "./components/Pagination";
 
 export default function App() {
-  return (
-    <div style={{ textAlign: "center" }}>
-      <h1>Machine coding round pratice</h1>
+  const [posts, setPosts] = useState([]);
 
-      <Carousel />
+  useEffect(() => {
+    const postList = async () => {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+      );
+      const data = await response.json();
+      console.log(data);
+      setPosts(data);
+    };
+
+    postList();
+  }, []);
+  return (
+    <div>
+      <h1>Otp component</h1>
+
+      <Pagination posts={posts} />
     </div>
   );
 }
